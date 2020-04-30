@@ -1,18 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
+import Comments from "../Comments";
 
-class Post extends Component {
-  render() {
-    const order = this.props.order;
-    const name = this.props.name;
-    const author = this.props.author;
-    const content = this.props.content;
-    return (
-    <div>
-      <h1> {order}: {name} by {author}</h1>
-      {content}
-    </div>
-    )
-  }
+function Post({post}) {
+  if (!post) return null
+  return (
+    <article className='Post'>
+      <h3>{post.title}</h3>
+      <p> {post.content}</p>
+      <Comments comments={post.comments}/>
+    </article>
+  );
 }
 
 export default Post;
+
+

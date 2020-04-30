@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 class Comments extends Component {
   render() {
-    const name = this.props.name;
-  const content = this.props.content; 
     return (
-    <div>
-      {name}: {content} </div>
-
-
+     <div>
+       <ul>
+         {this.props.comments.map((comment) => (
+         <li key={comment.id}>{comment.author.first_name}: {comment.content}</li>
+         ))}
+      </ul> 
+     </div>
     )
   }
 }
-
 export default Comments;
